@@ -21,6 +21,10 @@
         <activity android:name=".DetailActivity">
 
         </activity>
+        <activity android:name=".TempActivity">
+
+        </activity>
+
     </application>
 
 </manifest>

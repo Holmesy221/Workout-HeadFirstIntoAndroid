@@ -3,6 +3,7 @@ package holmes.holmesy.workout;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,14 @@ public class WorkoutDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        if(savedInstanceState !=null){
+        if(savedInstanceState ==null) {
+            StopwatchFragment stopwatchFragment = new StopwatchFragment();
+            FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+            ft.add(R.id.stopwatch_container,stopwatchFragment);
+            ft.addToBackStack(null);
+            ft.commit();
+
+        }else{
             workoutId = savedInstanceState.getLong("workoutId");
         }
     }
